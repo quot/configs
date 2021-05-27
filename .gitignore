@@ -1,0 +1,7 @@
+# Whitelist from: https://jasonstitt.com/gitignore-whitelisting-patterns
+# Ignore everything in the root
+/*
+# Un-ignore all of subtree
+!/nvim/
+!/kitty/
+!.gitignore
