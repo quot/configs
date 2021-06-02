@@ -16,9 +16,13 @@ nmap <silent> <A-Right> :wincmd l<CR>
 "##############################################
 " Plugins and plugin settings
 call plug#begin(stdpath('data') . '/plugged')
-  Plug 'romgrk/doom-one.vim'
-  Plug 'cespare/vim-toml'
-  Plug 'neovim/nvim-lspconfig'
+  " Misc
+  Plug 'romgrk/doom-one.vim'	" Doom ColorScheme
+
+  " Language Support
+  Plug 'neovim/nvim-lspconfig'	" Neovim LSP configs
+  Plug 'cespare/vim-toml'	" TOML syntax
+  Plug 'scalameta/nvim-metals'	" Scala LSP
 call plug#end()
 
 colorscheme doom-one
