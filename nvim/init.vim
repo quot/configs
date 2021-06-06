@@ -5,7 +5,7 @@ set relativenumber
 set mouse=a
 set showtabline=2
 set smarttab
-
+set hidden "Allows switching away from a buffer before saving
 
 " Split movement
 nmap <silent> <A-Up> :wincmd k<CR>
@@ -29,5 +29,5 @@ colorscheme doom-one
 
 " LSP Configs
 lua << EOF
-require'lspconfig'.rust_analyzer.setup{}
+  require'lspconfig'.rust_analyzer.setup{}
 EOF
