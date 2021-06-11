@@ -23,10 +23,10 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " File Trees
   " Nvim-Tree
-  Plug 'kyazdani42/nvim-web-devicons' " for file icons
-  Plug 'kyazdani42/nvim-tree.lua'
+    " Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    " Plug 'kyazdani42/nvim-tree.lua'
   " CHADTree
-  " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} " File Tree
+    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} " File Tree
 
   " Telescope search
   Plug 'nvim-lua/popup.nvim'
@@ -39,6 +39,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'scalameta/nvim-metals'	" Scala LSP
 call plug#end()
 
+" Misc
 colorscheme doom-one
 
 " Telescope
@@ -46,6 +47,12 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" ChadTree
+let g:chadtree_settings = {
+	\ 'theme.icon_glyph_set': 'devicons',
+	\ 'theme.text_colour_set': 'nerdtree_syntax_dark'
+	\ }
 
 " LSP
 lua << EOF
