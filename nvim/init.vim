@@ -20,7 +20,13 @@ nmap <silent> <A-Right> :wincmd l<CR>
 call plug#begin(stdpath('data') . '/plugged')
   " Misc
   Plug 'romgrk/doom-one.vim'	" Doom ColorScheme
-  Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} " File Tree
+
+  " File Trees
+  " Nvim-Tree
+  Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
+  " CHADTree
+  " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'} " File Tree
 
   " Telescope search
   Plug 'nvim-lua/popup.nvim'
