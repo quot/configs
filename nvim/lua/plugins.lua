@@ -20,18 +20,26 @@ return require("packer").startup({function()
     --################
 
     -- Theme
-    -- use { 'romgrk/doom-one.vim', config = function() require('conf.doom-one') end }
-    use {
-        'sainnhe/everforest',
-        config = function() require('conf.everforest') end
-    }
+    -- Doom-One for nvim: https://github.com/NTBBloodbath/doom-one.nvim
+    --use { 'sainnhe/everforest', config = function() require('conf.colorscheme') end }
+    use { 'sainnhe/sonokai', config = function() require('conf.colorscheme') end }
     
-    -- Treesitter -> Not needed after 7.0
+    -- Treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
     --###################################################################
     --# UX #
     --######
+    
+    -- Mini.nvim
+    use {
+        'echasnovski/mini.nvim',
+        config = function()
+            --require('mini.completion').setup()
+            require('mini.comment').setup()
+            require('mini.pairs').setup()
+        end
+    }
 
     -- Telescope
     use {
@@ -47,32 +55,35 @@ return require("packer").startup({function()
     -- Which-Key
     use {
         "folke/which-key.nvim",
-        config = function() require("which-key").setup { } end
+        config = function() require("which-key").setup { vim.cmd('set timeoutlen=500') } end
     }
-
-    -- Completion
-    use {
-        "hrsh7th/cmp-nvim-lsp",
-        requires = { {"hrsh7th/cmp-vsnip"},
-            {"hrsh7th/vim-vsnip"},
-    }}
 
     --###################################################################
     --# LSP #
     --#######
+    use {
+        'neovim/nvim-lspconfig',
+        config = function() require('conf.lsp') end
+    }
+
+    -- Completion 
+    use {
+        'ms-jpq/coq_nvim', branch = 'coq',
+        requires = {
+            { 'neovim/nvim-lspconfig' },
+            { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
+            { 'ms-jpq/coq.thirdparty',
+                branch = '3p',
+            },
+        }, config = function() require('conf.coq') end
+    }
 
     -- nvim-Metals
     use {
         "scalameta/nvim-metals",
-        requires = {{
-            "hrsh7th/nvim-cmp",
-            requires = {
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-vsnip",
-                "hrsh7th/vim-vsnip",
-            }},
-            "nvim-lua/plenary.nvim",
-            "mfussenegger/nvim-dap",
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            --"mfussenegger/nvim-dap",
         },
         config = function() require('conf.nvim-metals') end
     }
