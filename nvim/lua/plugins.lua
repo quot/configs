@@ -63,19 +63,17 @@ return require("packer").startup({function()
     --#######
     use {
         'neovim/nvim-lspconfig',
-        config = function() require('conf.lsp') end
-    }
-
-    -- Completion 
-    use {
-        'ms-jpq/coq_nvim', branch = 'coq',
         requires = {
-            { 'neovim/nvim-lspconfig' },
-            { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-            { 'ms-jpq/coq.thirdparty',
-                branch = '3p',
-            },
-        }, config = function() require('conf.coq') end
+            { 'ms-jpq/coq_nvim', branch = 'coq',
+                requires = {
+                    { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
+                    { 'ms-jpq/coq.thirdparty',
+                        branch = '3p',
+                    },
+                }, config = function() require('conf.coq') end,
+                setup = function() vim.g.coq_settings = { ["auto_start"] = "shut-up", ["display.pum.fast_close"] = false } end
+        }},
+        config = function() require('conf.lsp') end
     }
 
     -- nvim-Metals
