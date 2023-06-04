@@ -1,6 +1,8 @@
 # Ignore everything in the root
 /*
 # Whitelist
+!README.md
 !/nvim/
 !/kitty/
 !.gitignore
+
