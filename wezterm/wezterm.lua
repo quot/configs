@@ -20,9 +20,8 @@ local function osVals(linuxVal, macVal)
     elseif (wezterm.target_triple == 'x86_64-apple-darwin'
             or wezterm.target_triple == 'aarch64-apple-darwin') then
         return macVal
-    else
-        return nil
     end
+    return nil
 end
 
 config.color_scheme = "Andromeda"
