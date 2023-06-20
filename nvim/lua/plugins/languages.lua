@@ -1,0 +1,3 @@
+return {
+    { "jcorbin/vim-lobster" },
+}
