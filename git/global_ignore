@@ -1,0 +1,8 @@
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Scala
+.scalafmt.conf
+.metals/
+.bloop/
