@@ -8,3 +8,4 @@ opt.wrap = true -- Line wrap
 opt.shiftwidth = 4
 opt.smarttab = true
 opt.tabstop = 4
+opt.breakindent = true

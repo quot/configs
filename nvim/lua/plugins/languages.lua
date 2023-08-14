@@ -1,9 +1,15 @@
 return {
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { auto_install = true },
+  },
+
   -- nvim-metals
   {
     "scalameta/nvim-metals",
     name = "metals",
-    ft = { "scala", "sbt", "java" },
+    ft = { "scala", "sbt" }, -- Also supports "java"
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
