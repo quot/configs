@@ -1,11 +1,5 @@
 return {
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { auto_install = true },
-  },
-
-  -- nvim-metals
+  -- Scala: nvim-metals
   {
     "scalameta/nvim-metals",
     name = "metals",
@@ -15,8 +9,8 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { "<leader>cW", function () require('metals').hover_worksheet() end, desc = "Metals Worksheet" },
-      { "<leader>cM", function () require('telescope').extensions.metals.commands() end, desc = "Telescope Metals Commands" },
+      { "<leader>csw", function () require('metals').hover_worksheet() end, desc = "Metals Worksheet" },
+      { "<leader>csf", function () require('telescope').extensions.metals.commands() end, desc = "Telescope Metals Commands" },
     },
     config = function()
       local metals_config = require("metals").bare_config()
@@ -29,6 +23,31 @@ return {
       }
       metals_config.init_options.statusBarProvider = "on"
       metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      local dap = require("dap")
+
+      dap.configurations.scala = {
+        {
+          type = "scala",
+          request = "launch",
+          name = "RunOrTest",
+          metals = {
+            runType = "runOrTestFile",
+          },
+        },
+        {
+          type = "scala",
+          request = "launch",
+          name = "Test Target",
+          metals = {
+            runType = "testTarget",
+          },
+        },
+      }
+
+      metals_config.on_attach = function(client, bufnr)
+        require("metals").setup_dap()
+      end
     end,
     init = function()
       local metals_config = require("metals").bare_config()
@@ -43,5 +62,6 @@ return {
     end,
   },
 
-  { "jcorbin/vim-lobster" },
+  -- Lobster LSP
+  -- { "jcorbin/vim-lobster" },
 }
