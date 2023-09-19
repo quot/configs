@@ -3,6 +3,7 @@
 # Whitelist
 !README.md
 !/nvim/
+!/helix/
 !/kitty/
 !/wezterm/
 !/git/

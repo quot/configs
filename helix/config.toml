@@ -1,0 +1,18 @@
+theme = "sonokai"
+
+[editor]
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+# [editor.file-picker]
+# git-ignore = false
+# git-global = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
