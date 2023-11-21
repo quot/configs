@@ -1,0 +1,11 @@
+[language-server.metals]
+command = "metals"
+args=["-Dmetals.verbose=on", "-Dmetals.loglevel=debug", "-Dmetals.pc.debug=on"] 
+
+[language-server.metals.config]
+compilerOptions.overrideDefFormat = "unicode"
+isHttpEnabled = true
+debuggingProvider = true
+icons = "unicode"
+ # inlineDecorationProvider = true
+

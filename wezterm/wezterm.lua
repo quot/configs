@@ -1,18 +1,6 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- This table will hold the configuration.
-local config = {}
-
--- In newer versions of wezterm, use the config_builder which will
--- help provide clearer error messages
-if wezterm.config_builder then
-	config = wezterm.config_builder()
-end
-
---------------------------------------------------------
---------------------------------------------------------
--- This is where you actually apply your config choices
+config = wezterm.config_builder()
 
 local function osVals(linuxVal, macVal)
 	if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
@@ -24,7 +12,24 @@ local function osVals(linuxVal, macVal)
 end
 
 config.color_scheme = "Andromeda"
-config.font = wezterm.font("Hack Nerd Font")
+config.font = wezterm.font_with_fallback {
+	{ family = "Monaspace Neon",
+		harfbuzz_features = {
+			'calt',
+			'liga',
+			'dlig',
+    	'ss01', -- ligatures related to the equals glyph like != and ===.
+    	'ss02', -- ligatures related to the greater than or less than operators.
+    	'ss03', -- ligatures related to arrows like -> and =>.
+    	'ss04', -- ligatures related to markup, like </ and />.
+    	-- 'ss05', -- ligatures related to the F# programming language, like |>.
+    	'ss06', -- ligatures related to repeated uses of # such as ## or ###.
+    	'ss07', -- ligatures related to the asterisk like ***.
+    	'ss08', -- ligatures related to combinations like .= or .-.
+		}
+	},
+	{ family = "Hack Nerd Font" }
+}
 config.font_size = osVals(14.0, 17)
 
 config.window_frame = {
