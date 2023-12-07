@@ -20,3 +20,6 @@ foo.*
 *.log
 data
 lazy-lock.json
+
+# Ignore backup files
+/karabiner/automatic_backups/
