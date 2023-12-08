@@ -17,15 +17,15 @@ config.font = wezterm.font_with_fallback {
 		harfbuzz_features = {
 			'calt',
 			'liga',
-			'dlig',
-    	'ss01', -- ligatures related to the equals glyph like != and ===.
-    	'ss02', -- ligatures related to the greater than or less than operators.
-    	'ss03', -- ligatures related to arrows like -> and =>.
-    	'ss04', -- ligatures related to markup, like </ and />.
-    	-- 'ss05', -- ligatures related to the F# programming language, like |>.
-    	'ss06', -- ligatures related to repeated uses of # such as ## or ###.
-    	'ss07', -- ligatures related to the asterisk like ***.
-    	'ss08', -- ligatures related to combinations like .= or .-.
+			-- 'dlig', -- Enable all ligatures
+			'ss01', -- ligatures related to the equals glyph like != and === and =~.
+			'ss02', -- ligatures related to the greater than or less than operators.
+			'ss03', -- ligatures related to arrows like -> and =>.
+			'ss04', -- ligatures related to markup, like </ and />.
+			-- 'ss05', -- ligatures related to the F# programming language, like |>.
+			'ss06', -- ligatures related to repeated uses of # such as ## or ###.
+			'ss07', -- ligatures related to the asterisk like ***.
+			'ss08', -- ligatures related to combinations like .= or .-.
 		}
 	},
 	{ family = "Hack Nerd Font" }
