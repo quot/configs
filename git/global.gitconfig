@@ -1,0 +1,10 @@
+[user]
+	name = Alex Coté
+	email = alex.cote@tuta.io
+[core]
+	excludesFile = ~/.config/git/global.gitignore
+[color]
+	ui = auto
+[include]
+	path = ~/.config/private-configs/git/work.gitconfig
+

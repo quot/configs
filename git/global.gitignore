@@ -6,3 +6,7 @@
 .scalafmt.conf
 .metals/
 .bloop/
+
+# jdtls
+.factorypath
+

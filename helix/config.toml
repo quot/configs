@@ -26,3 +26,6 @@ tab = "none"
 newline = "󱦳"
 # newline = "󱞣"
 
+[editor.file-picker]
+hidden = false
+

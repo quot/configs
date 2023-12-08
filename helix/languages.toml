@@ -1,3 +1,11 @@
+[[language]]
+name = "git-config"
+file-types = ["gitconfig", ".gitmodules", ".gitconfig", { suffix = ".git/config" }, { suffix = ".config/git/config" }]
+
+[[language]]
+name = "git-ignore"
+file-types = ["gitignore", ".gitignore", ".gitignore_global", ".ignore", ".prettierignore", ".eslintignore", ".npmignore", "CODEOWNERS"]
+
 [language-server.metals]
 command = "metals"
 args=[
