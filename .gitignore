@@ -9,6 +9,7 @@
 !/karabiner/
 !/git/
 !/private-configs/
+!/styleguide/
 !.gitignore
 
 # LazyVim ignores

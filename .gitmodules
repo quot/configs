@@ -1,3 +1,6 @@
 [submodule "private-configs"]
 	path = private-configs
 	url = git@github.com:quot/private-configs.git
+[submodule "styleguide"]
+	path = styleguide
+	url = git@github.com:google/styleguide.git

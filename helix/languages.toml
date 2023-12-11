@@ -24,5 +24,5 @@ icons = "unicode"
 [language-server.jdtls]
 command = "jdtls"
 args=[
-  "-Djava.format.settings.url='https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml'",
+  "-Djava.format.settings.url='file:~/.config/styleguide/eclipse-java-google-style.xml'",
 ]
