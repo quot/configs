@@ -25,4 +25,6 @@ icons = "unicode"
 command = "jdtls"
 args=[
   "-Djava.format.settings.url='file:~/.config/styleguide/eclipse-java-google-style.xml'",
+  # "-data", "$TMPDIR/jdtls-workspace",
+  "-Djdt.ls.debug=true",
 ]
