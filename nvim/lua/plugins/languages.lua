@@ -10,7 +10,7 @@ return {
     dependencies = {
       "scalameta/nvim-metals",
       init = function()
-        require("lazyvim.util").on_attach(function(_, buffer)
+        require("lazyvim.util").lsp.on_attach(function(_, buffer)
           -- Keymap setup
           vim.keymap.set(
             "n",
