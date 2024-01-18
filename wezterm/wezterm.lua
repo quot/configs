@@ -12,24 +12,25 @@ local function osVals(linuxVal, macVal)
 end
 
 config.color_scheme = "Andromeda"
-config.font = wezterm.font_with_fallback {
-	{ family = "Monaspace Neon",
+config.font = wezterm.font_with_fallback({
+	{
+		family = "Monaspace Neon",
 		harfbuzz_features = {
-			'calt',
-			'liga',
+			"calt",
+			"liga",
 			-- 'dlig', -- Enable all ligatures
-			'ss01', -- ligatures related to the equals glyph like != and === and =~.
-			'ss02', -- ligatures related to the greater than or less than operators.
-			'ss03', -- ligatures related to arrows like -> and =>.
-			'ss04', -- ligatures related to markup, like </ and />.
+			-- "ss01", -- ligatures related to the equals glyph like != and === and =~.
+			-- "ss02", -- ligatures related to the greater than or less than operators. >= and <=
+			-- "ss03", -- ligatures related to arrows like -> and =>.
+			-- "ss04", -- ligatures related to markup, like </ and />.
 			-- 'ss05', -- ligatures related to the F# programming language, like |>.
-			'ss06', -- ligatures related to repeated uses of # such as ## or ###.
-			'ss07', -- ligatures related to the asterisk like ***.
-			'ss08', -- ligatures related to combinations like .= or .-.
-		}
+			-- "ss06", -- ligatures related to repeated uses of # such as ## or ###.
+			-- "ss07", -- ligatures related to the asterisk like ***.
+			-- "ss08", -- ligatures related to combinations like .= or .-.
+		},
 	},
-	{ family = "Hack Nerd Font" }
-}
+	{ family = "Hack Nerd Font" },
+})
 config.font_size = osVals(14.0, 17)
 
 config.window_frame = {
