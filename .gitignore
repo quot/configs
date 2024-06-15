@@ -1,5 +1,6 @@
 # Ignore everything in the root
 /*
+
 # Whitelist
 !README.md
 !/nvim/
@@ -11,6 +12,12 @@
 !/private-configs/
 !/styleguide/
 !.gitignore
+!/zed/
+
+# Zed - Only allow certain files
+/zed/*
+!/zed/settings.json
+!/zed/keymap.json
 
 # LazyVim ignores
 tt.*
@@ -23,5 +30,5 @@ foo.*
 data
 lazy-lock.json
 
-# Ignore backup files
+# Karabiner - Ignore backup files
 /karabiner/automatic_backups/
