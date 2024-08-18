@@ -1,10 +1,14 @@
 [[language]]
 name = "git-config"
-file-types = ["gitconfig", ".gitmodules", ".gitconfig", { suffix = ".git/config" }, { suffix = ".config/git/config" }]
+file-types = ["gitconfig"]
 
 [[language]]
 name = "git-ignore"
-file-types = ["gitignore", ".gitignore", ".gitignore_global", ".ignore", ".prettierignore", ".eslintignore", ".npmignore", "CODEOWNERS"]
+file-types = ["gitignore"]
+
+[[language]]
+name = "bash"
+file-types = [{glob="zshrc"}]
 
 [language-server.metals]
 command = "metals"

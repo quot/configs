@@ -29,3 +29,7 @@ newline = "󱦳"
 [editor.file-picker]
 hidden = false
 
+[keys.normal]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+
