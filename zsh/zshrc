@@ -20,8 +20,8 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 ### Shell Settings
 
 ### ZSH Specific
-SAVEHIST=10000
-HISTSIZE=10000
+export SAVEHIST=10000
+export HISTSIZE=10000
 
 # Key Bindings
 bindkey "^[[H" beginning-of-line # Home Key
@@ -33,7 +33,8 @@ bindkey "^[[1;5C" forward-word # ctrl+->
 # Case-insensitive completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
-setopt globdots # Inclued hidden files in matching
+# Inclued hidden files in matching
+setopt globdots
 
 ### Color Settings
 export TERM=xterm-color
@@ -47,10 +48,12 @@ alias less='less -r'
 alias lg='lazygit'
 alias nv='nvim'
 alias ls='eza -a --icons'
+alias lsl='eza -Galh --no-permissions --no-user --time-style=iso --git --color-scale=size --color-scale-mode=gradient'
 
 ### Path Setup
 path+=("$HOME/Devel/Scripts/Shell/PathScripts")
 path+=("$HOME/Library/Application Support/Coursier/bin")
+path+=("$HOME/.local/bin") # pipx install path
 # path+=('/usr/local/opt/scala@2.12/bin')
 export PATH
 
@@ -63,39 +66,25 @@ source setjava17 # Requires PathScripts dir
 
 ### FZF
 # https://github.com/junegunn/fzf
+export FZF_DEFAULT_OPTS="-i"
 source <(fzf --zsh)
 
-### Python
-# Environment intialization
-PY_ACTIVATE=~/Library/Python/bin/activate
-if [ -f "$PY_ACTIVATE" ]; then
-    source $PY_ACTIVATE
-fi
+# ### Python
+# # Environment intialization
+# PY_ACTIVATE=~/Library/Python/bin/activate
+# if [ -f "$PY_ACTIVATE" ]; then
+#     source $PY_ACTIVATE
+# fi
 
 ###############################################################################
 ###############################################################################
 ### Plugins / Integrations
-autoload -Uz compinit && compinit # Initialize completion system
-
 ### zinit plugin manager
 source /opt/homebrew/opt/zinit/zinit.zsh
+source ~/.config/zsh/completions.zsh
 
-### fzf-tab
-# https://github.com/Aloxaf/fzf-tab/wiki/Configuration
-zinit light Aloxaf/fzf-tab # loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
-
-# fzf-tab key bindings
-# https://junegunn.github.io/fzf/reference/#keyevent-bindings
-zstyle ':fzf-tab:*' fzf-bindings 'tab:accept' 'btab:'
-zstyle ':fzf-tab:*' accept-line enter
-
-# fzf-tab style settings
-zstyle ':completion:*:git-checkout:*' sort false # disable sort when completing `git checkout`
-zstyle ':completion:*:descriptions' format '[%d]' # set descriptions format to enable group support
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # set list-colors to enable filename colorizing
-zstyle ':completion:*' menu no # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # preview directory's content with eza when completing cd
-zstyle ':fzf-tab:*' switch-group '<' '>' # switch group using `<` and `>`
+# fzf-tab
+source ~/.config/zsh/fzf-tab.zsh
 
 ### Misc plugins
 zinit light zsh-users/zsh-syntax-highlighting

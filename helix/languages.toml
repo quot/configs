@@ -8,7 +8,11 @@ file-types = ["gitignore"]
 
 [[language]]
 name = "bash"
-file-types = [{glob="zshrc"}]
+file-types = [ "zsh", {glob="zshrc"} ]
+
+[[language]]
+name = "python"
+language-servers = [ "basedpyright" ]
 
 [language-server.metals]
 command = "metals"
@@ -25,10 +29,10 @@ debuggingProvider = true
 icons = "unicode"
 # inlineDecorationProvider = true
 
-[language-server.jdtls]
-command = "jdtls"
-args=[
-  "-Djava.format.settings.url='file:~/.config/styleguide/eclipse-java-google-style.xml'",
-  # "-data", "$TMPDIR/jdtls-workspace",
-  "-Djdt.ls.debug=true",
-]
+# [language-server.jdtls]
+# command = "jdtls"
+# args=[
+#   "-Djava.format.settings.url='file:~/.config/styleguide/eclipse-java-google-style.xml'",
+#   # "-data", "$TMPDIR/jdtls-workspace",
+#   "-Djdt.ls.debug=true",
+# ]
