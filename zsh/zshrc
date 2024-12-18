@@ -26,7 +26,7 @@ export HISTSIZE=10000
 ### ZSH PROMPT
 # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
 #precmd() { print -P "\e[3;30;47m%?> %~ \e[0m" } # Preprompt print script
-PROMPT=$'%K{blue}[%n@%m]%k%K{white}%F{black}%{\e[2m%} %c %{\e[0m%}%k%f %# '
+PROMPT=$'%K{blue}%{\e[1m%}[%n@%m]%k%{\e[0m%}%K{white}%F{black}%{\e[2m%} %c %{\e[0m%}%k%f %# '
 
 # Key Bindings
 bindkey "^[[H" beginning-of-line # Home Key
