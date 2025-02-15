@@ -4,9 +4,12 @@
 
 # Scala
 .scalafmt.conf
-.metals/
-.bloop/
+.metals
+.bloop
+
+# Zig
+.zig-cache/
+zig-out/
 
 # jdtls
 .factorypath
-

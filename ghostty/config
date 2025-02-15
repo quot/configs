@@ -1,0 +1,6 @@
+font-size = 15.5
+theme=nord
+mouse-hide-while-typing = true
+
+shell-integration-features = no-cursor
+cursor-style=block
