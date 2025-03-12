@@ -35,6 +35,12 @@ hidden = false
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
 
+[keys.normal.space]
+z = ":toggle gutters.line-numbers.min-width 48 3"
+
+[editor.gutters.line-numbers]
+min-width = 48
+
 [keys.select]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"

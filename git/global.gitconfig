@@ -3,8 +3,46 @@
 	email = alex.cote@tuta.io
 [core]
 	excludesFile = ~/.config/git/global.gitignore
-[color]
-	ui = auto
 [include]
 	path = ~/.config/private-configs/git/work.gitconfig
-
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[pull]
+	ff = only
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[help]
+	autocorrect = prompt
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
