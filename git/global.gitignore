@@ -1,10 +1,16 @@
+# MacOS
+.DS_Store
+__MACOSX/
+
 # Sublime
 *.sublime-project
 *.sublime-workspace
 
 # Scala
 .scalafmt.conf
+.scala-build/
 .metals
+metals.sbt
 .bloop
 
 # Zig
@@ -13,3 +19,6 @@ zig-out/
 
 # jdtls
 .factorypath
+
+# slop
+.claude/

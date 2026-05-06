@@ -1,6 +1,16 @@
-font-size = 14
-theme=nord
+
+theme = dark:nord, light:Flexoki Light
+# light:Iceberg Light
+# light:Flexoki Light
+
+font-size = 15
+window-show-tab-bar = always
 mouse-hide-while-typing = true
 
 shell-integration-features = no-cursor
-cursor-style=block
+cursor-style = block
+keybind = shift+enter=text:\x1b\r
+
+command = /opt/homebrew/bin/nu
+
+shell-integration-features = ssh-env

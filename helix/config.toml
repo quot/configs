@@ -1,6 +1,9 @@
 # theme = "sonokai"
 # theme = "nord-night"
-theme = "everforest_dark"
+# theme = "everforest_dark"
+# theme = "onelight"
+# theme = "flexoki_light"
+theme = "modus_operandi"
 
 [editor]
 line-number = "relative"
@@ -34,9 +37,14 @@ hidden = false
 [keys.normal]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
+C-left = "jump_view_left"
+C-right = "jump_view_right"
+C-up = "jump_view_up"
+C-down = "jump_view_down"
 
 [keys.normal.space]
 z = ":toggle gutters.line-numbers.min-width 48 3"
+B = ":sh git log -n 5 --format='format:%%h (%%an: %%ar) %%s' --no-patch -L%{cursor_line},+1:%{buffer_name}"
 
 [editor.gutters.line-numbers]
 min-width = 48
@@ -44,4 +52,3 @@ min-width = 48
 [keys.select]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
-

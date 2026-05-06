@@ -18,6 +18,15 @@
 !/nushell/
 !/ghostty/
 
+# Ghostty
+/ghostty/*.bak
+
+# NuShell
+/nushell/history.txt
+
+# Helix
+/helix/runtime/
+
 # Zed - Only allow certain files
 /zed/*
 !/zed/settings.json

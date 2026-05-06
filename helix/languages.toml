@@ -1,3 +1,9 @@
+use-grammars = { only = [ "apex", "soql", "sosl" ] }
+
+[language-server]
+ty = { command = "ty", args = ["server"] }
+kotlin-lsp = { command = "kotlin-lsp", args = ["--stdio"] }
+
 [[language]]
 name = "git-config"
 file-types = ["gitconfig", { glob = ".gitmodules" }, { glob = ".gitconfig" }, { glob = ".git/config" }, { glob = ".config/git/config" }]
@@ -7,30 +13,47 @@ name = "git-ignore"
 file-types = ["gitignore", { glob = ".gitignore_global" }, { glob = "git/ignore" }, { glob = ".ignore" }, { glob = "CODEOWNERS" }, { glob = ".config/helix/ignore" }, { glob = ".helix/ignore" }, { glob = ".*ignore" }]
 
 [[language]]
+name = "html"
+auto-format = false
+
+[[language]]
 name = "bash"
 file-types = [ "zsh", {glob="zshrc"} ]
 
 [[language]]
 name = "python"
 # language-servers = [ "pyright" ]
-language-servers = [ "basedpyright" ]
+# language-servers = [ "basedpyright" ]
+language-servers = [ "ty" ]
 
-[language-server.kotlin-language-server]
-config = {kotlin.compiler.jvm.target = 21}
 
-[language-server.metals]
-command = "metals"
-args=[
-  "-Dmetals.verbose=on",
-  "-Dmetals.loglevel=debug",
-  "-Dmetals.pc.debug=on",
-]
+[[language]]
+name = "kotlin"
+language-servers = [ "kotlin-lsp" ]
 
-[language-server.metals.config]
-compilerOptions.overrideDefFormat = "unicode"
-icons = "unicode"
-inlineDecorationProvider = true
-# debuggingProvider = true
+[[language]]
+name = "java"
+indent = { tab-width = 4, unit = "    " }
+
+# [language-server.kotlin-language-server]
+# config = {kotlin.compiler.jvm.target = 21}
+
+# [language-server.metals]
+# command = "metals"
+# args=[
+#   "-Dmetals.verbose=on",
+#   "-Dmetals.loglevel=debug",
+#   "-Dmetals.pc.debug=on",
+# ]
+
+# [language-server.metals.config]
+# compilerOptions.overrideDefFormat = "unicode"
+# icons = "unicode"
+# inlineDecorationProvider = true
+# # debuggingProvider = true
+
+[language-server.metals.config.metals]
+autoImportBuild = "all"
 
 # [language-server.jdtls]
 # command = "jdtls"
@@ -39,3 +62,49 @@ inlineDecorationProvider = true
 #   # "-data", "$TMPDIR/jdtls-workspace",
 #   "-Djdt.ls.debug=true",
 # ]
+
+# Based on: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#apex_ls
+# Command setup: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/apex_ls.lua
+# Jar: https://github.com/forcedotcom/salesforcedx-vscode/tree/develop/packages/salesforcedx-vscode-apex/jars
+[language-server.apex_ls]
+command = "java"
+args = [
+  "-cp",
+  "/Users/acote/.local/bin/apex-jorje-lsp.jar",
+  "-Ddebug.internal.errors=true",
+  "-Ddebug.semantic.errors=false",
+  "-Ddebug.completion.statistics=false",
+  "-Dlwc.typegeneration.disabled=true",
+  "apex.jorje.lsp.ApexLanguageServerLauncher"
+]
+
+[[language]]
+name = "apex"
+scope = "source.apex"
+file-types = [ "cls", "trigger", "apex" ]
+language-servers = ["apex_ls"]
+comment-tokens = ["//"]
+block-comment-tokens = [ { start = "/*", end = "*/" } ]
+# formatter = { command = "prettierd", args = ['--plugin', '/opt/homebrew/lib/node_modules/prettier-plugin-apex', '--stdin-filepath="%sh{echo "$(pwd)/%{buffer_name}"}"'] }
+
+[[grammar]]
+name = "apex"
+source = { git = "https://github.com/aheber/tree-sitter-sfapex", rev = "3597575a429766dd7ecce9f5bb97f6fec4419d5d", subpath = "apex" }
+
+[[language]]
+name = "soql"
+scope = "source.soql"
+file-types = [ "soql" ]
+
+[[grammar]]
+name = "soql"
+source = { git = "https://github.com/aheber/tree-sitter-sfapex", rev = "3597575a429766dd7ecce9f5bb97f6fec4419d5d", subpath = "soql" }
+
+[[language]]
+name = "sosl"
+scope = "source.sosl"
+file-types = [ "sosl" ]
+
+[[grammar]]
+name = "sosl"
+source = { git = "https://github.com/aheber/tree-sitter-sfapex", rev = "3597575a429766dd7ecce9f5bb97f6fec4419d5d", subpath = "sosl" }
